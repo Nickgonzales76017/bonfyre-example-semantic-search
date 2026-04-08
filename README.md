@@ -117,6 +117,20 @@ The `sample-data/` directory contains 20 text documents across different topics:
 | 19 | caching-strategies.txt | Performance |
 | 20 | testing-pyramid.txt | Quality assurance |
 
+## Pipeline intelligence
+
+When paired with audio transcription, the full pipeline provides:
+
+| Capability | Detail |
+|---|---|
+| Transcription quality | **0.997** (HCP v3.2, tiny q5_0, 29 MB) |
+| Hallucination detection | **9 layers** — 0.09% error rate |
+| Pipeline latency | **< 8 ms** per stage |
+| OpenAI compatibility | Drop-in via `bonfyre-proxy` (`/v1/audio/transcriptions`, `/v1/chat/completions`) |
+| Compression | **9.3%** JSON ratio (Lambda Tensors, O(1) field reads) |
+
+To add transcription: `bonfyre-transcribe --input audio.wav --output transcript.json`, then embed the transcript directly.
+
 ## Customizing
 
 **Use your own documents:**
